@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body{
+            align-items: center;
+            background-color: rgb(209, 181, 24);
+    ;
+        }
+        .titulo{
+            text-align: center;
+            color: whitesmoke;
+
+        }
+        .centro{
+            text-align: center;
+            margin: auto;
+            padding: 20px;
+            min-height: 300px;
+            height: auto;
+            width: 500px;
+            background-color: azure;
+            text-align: center;
+            border-radius: 20px;
+        }
+        .btnResetar{
+            text-align: center;
+            width: 85px;
+            height: 25px;
+            border-radius: 20px;
+            font-weight: 300;
+            position: absolute;
+            bottom: 33%;
+            left: 45%;
+
+        }
+        .btnResetar:hover{
+            background-color: rgb(209, 181, 24);
+            transition: 1.5s;
+        }
+        .btn{
+            text-align: center;
+            width: 85px;
+            height: 25px;
+            border-radius: 20px;
+            font-weight: 300;
+        }
+        .btn:hover{
+            background-color: rgb(209, 181, 24);
+            transition: 1.5s;
+        }
+        .texto{
+            text-align: center;
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <header class="titulo">
+        <h1>Jogo do chute</h1>
+    </header>
+        <form action="test">
+            <div class="centro">
+
+                <h2>Chute um número e veja se consegue acertar:</h2>
+
+                <input placeholder="Digite aqui o seu número" class="numero">
+                <input type="submit" value="Chute!" class="btn" onclick="chute()">
+
+                <p class="texto"></p>
+
+
+                <button class="btnResetar" onclick="resetar()">Resetar</button>
+            </div> 
+        </form>
+
+
+    <script>
+        const c = document.querySelector('form');
+        c.addEventListener('submit', (e)=>{
+            e.preventDefault()
+
+        })
+        var segredo = []
+
+        function sorteia() {
+
+        return Math.round(Math.random() * 10);
+    }   
+
+        function empurraSegredo(quantidade){
+
+                for(i=0; i < quantidade; i++){
+                    var num = sorteia()
+                    if(!segredo.includes(num)){
+                      if(num !== 0){
+                        segredo.push(num)  
+                    }                                
+                    }
+                }           
+        }
+        empurraSegredo(3)       
+
+        var texto = document.querySelector('.texto')
+        var input = document.querySelector('.numero')
+
+        function chute(){           
+
+            valor = Number(input.value)
+            if(input.value == ''){                
+                alert('Digite um número!')
+            }
+             if(segredo.indexOf(valor) != -1){
+
+                texto.innerHTML = `Parabéns, você acertou! <br>`
+                texto.innerHTML += `Os números secretos foram <strong>${segredo}</strong>`
+
+            }else{
+                texto.innerHTML = `Errou, o seu número foi: <strong>${valor}</strong>. Tente novamente!`             
+            }
+
+            input.value = ""
+            input.focus()
+        }
+
+        function resetar(){
+            location.reload()
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<script>
+
+    function pulaLinha() {
+
+        document.write("<br>");
+        document.write("<br>");
+	}
+
+    function mostra(frase) {
+
+        document.write(frase);
+        pulaLinha();
+	}
+	var numero = 30
+
+	while(numero <=40){
+
+		if (numero == 33) {
+			numero = numero + 1;
+		}
+		else if (numero == 37) {
+			numero = numero + 1;
+		}
+		else {
+		mostra(numero);
+		numero = numero + 1;
+		}
+	}
+
+	mostra("Fim");
+	
+</script>

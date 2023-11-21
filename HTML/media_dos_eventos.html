@@ -1,0 +1,37 @@
+<meta charset="UTF-8">
+<script>
+
+    function pulaLinha(){
+
+        document.write("<br>")
+    }
+
+    function mostra(frase){
+
+        document.write(frase)
+        pulaLinha();
+    }
+
+    var totalDeEventos = parseInt(prompt("Informe o total de eventos do mês"));
+    
+    var contador = 1;
+    
+    var totalGastoComEventos = 0;
+
+    while(contador<=totalDeEventos){
+
+    	var gasto = parseFloat(prompt("Informe o gasto total do " + contador + "º evento"));
+
+    	totalGastoComEventos = totalGastoComEventos + gasto;
+
+    	contador ++;
+    }
+
+    var mediaDasDespesas = parseFloat(totalGastoComEventos / totalDeEventos);
+
+    mostra("A média de despesa com eventos desse mês foi de R$" + mediaDasDespesas)
+
+</script>
+
+
+

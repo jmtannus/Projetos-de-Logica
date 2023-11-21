@@ -1,0 +1,21 @@
+<script>
+
+    function pulaLinha() {
+
+        document.write("<br>");
+        document.write("<br>");
+	}
+
+    function mostra(frase) {
+
+        document.write(frase);
+        pulaLinha();
+	}
+	var numeropar = 2
+
+	while(numeropar <=30 && numeropar<=40){
+		mostra("O numero " + numeropar + " é par!");
+		numeropar = numeropar + 2;
+	}
+	mostra("Fim");
+</script>
